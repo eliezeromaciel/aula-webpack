@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #8fbcb3;
+  padding: 10px;
+  height: 100vh;
+}
+body > .card-exercicio {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: 1;
+  gap: 5px;
+  padding: 10px 20%; /* SEGREDO PARA DIMINUIR AS MARGENS DA DIV.....*/
+  justify-content: center;
+}
+body > .card-exercicio div {
+  background-color: #dfe6ed;
+}/*# sourceMappingURL=style.css.map */

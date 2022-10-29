@@ -1,0 +1,30 @@
+@import 'cores';
+
+* { 
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: $verde;
+    padding: 10px;
+    height: 100vh;
+    
+
+
+    > .card-exercicio {
+        padding: 10px;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;  
+        grid-row: 1;
+        gap: 5px;
+        padding: 10px 20%;          /* SEGREDO PARA DIMINUIR AS MARGENS DA DIV.....*/ 
+        justify-content: center;
+
+        div {
+            background-color: $cinza-claro;
+        }
+    }
+
+}
