@@ -1,7 +1,6 @@
 import "./style.scss"
 import "./JS/gerenciaDeNomes"
 import "./JS/calculadora"
-import "./cores.scss"
 const {concatena} = require ("./JS/gerenciaDeNomes")
 const {divide} = require ("./JS/calculadora")
 
@@ -32,6 +31,7 @@ function executaExercicioDois (){
     const num2 = document.querySelector("#num2").value
     const resultado = document.querySelector("#card-exercicio__2_resultado")
 
+    
     if (num1<0 || num2 <= 0) {
         alert ('não aceita número negativo e não pode dividir por zero')
         return      // COM ISSO, EU MATO O RESTANTE DO CÓDIGO. ACABA AQUI NESSA LINHA .
