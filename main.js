@@ -3,42 +3,25 @@ import "./JS/gerenciaDeNomes"
 import "./JS/calculadora"
 const {concatena} = require ("./JS/gerenciaDeNomes")
 const {divide} = require ("./JS/calculadora")
-
-
+const moduloTela = require ("./JS/tela")
 
 const botaoConcatena = document.querySelector("#id-botao")
-botaoConcatena.addEventListener ("click", executaExercicioUm )
-
-function executaExercicioUm () {
-    const resultado = document.querySelector("#card-exercicio__1_resultado")
-    
-    const nome = document.querySelector("#nome").value
-    const sobrenome = document.querySelector("#sobrenome").value
-    
-    const resposta = concatena(nome, sobrenome)
-
-    resultado.innerHTML = resposta
-}
-
-
-
+botaoConcatena.addEventListener ("click", executaNomes )
 
 const botaoDivide = document.querySelector("#id-botao-divide")
-botaoDivide.addEventListener ("click", executaExercicioDois )
+botaoDivide.addEventListener ("click", executaNumeros)
 
-function executaExercicioDois (){
-    const num1 = document.querySelector("#num1").value
-    const num2 = document.querySelector("#num2").value
-    const resultado = document.querySelector("#card-exercicio__2_resultado")
-
-    // A regra abaixo precisa ser encapsuladoa dentro da função divide, pois é UMA REGRA DE CONTEXTO DELA.
-    // if (num1<0 || num2 <= 0) {
-    //     alert ('não aceita número negativo e não pode dividir por zero')
-    //     return      // COM ISSO, EU MATO O RESTANTE DO CÓDIGO. ACABA AQUI NESSA LINHA .
-    // }
-    
-    const resposta = divide(num1, num2)
-
-    resultado.innerHTML = resposta
+function executaNomes (){
+    executaExercicio ("#nome", "#sobrenome", "#card-exercicio__1_resultado", concatena)
+}
+function executaNumeros (){
+    executaExercicio ("#num1", "#num2", "#card-exercicio__2_resultado", divide )
 }
 
+function executaExercicio (id1,id2, tagResultado, funcaoDesejada){
+    const retornoDados = moduloTela.pegaDadosDaTelaPorID(id1,id2)
+    const resposta = funcaoDesejada(retornoDados[0], retornoDados[1])
+    const mostraNaTela = moduloTela.mostraNaTela(resposta, tagResultado  )
+}
+
+// CONTINUAR REFATORANDO !!!!!!!!!!!!!!!!!!!
